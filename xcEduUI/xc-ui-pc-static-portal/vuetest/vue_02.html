@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>vue测试页面v-model,v-text,v-on</title>
+
+    <style>
+        #count{
+            color: red;
+        }
+    </style>
+</head>
+<!--常用指令测试，v-model,双向数据绑定-->
+<body>
+
+<!--实现在body区域显示“传智播客”-->
+<!--编写视图view部分-->
+<div id="app">
+    <!--差值表达式，视图部分-->
+    <!--{{name}}-->
+    <!--使用v-text解决加载差值表达式造成的视图闪烁问题-->
+    <a :href="url">
+        <span v-text="name"></span>
+    </a>
+    <input type="text" v-model="num1">+
+    <!--<select>
+        <option  v-for="char in chars">{{char}}</option>
+    </select>-->
+    <input type="text" v-model="num2">=
+    <!--<span v-text="Number.parseInt(num1)+Number.parseInt(num2)"></span>-->
+    <span id="count" v-text="result"></span>
+    <!--<font id="count">-->
+        <!--{{Number.parseInt(num1)+Number.parseInt(num2)}}-->
+    <!--</font>-->
+    <!--v-on,事件绑定-->
+    <!--<button v-on:click="count">计算</button>-->
+    <button @click="count">计算</button>
+    <br>
+    <span :style="{fontSize:size+'px'}">hello world</span>
+</div>
+</body>
+<!--script引入vue-->
+<script src="vue.min.js"></script>
+<script>
+<!--创建vm部分和modle部分-->
+    var VM=new Vue({
+        //el接管视图区域
+        el:'#app',
+        data:{
+            name:'传智播客计算器',
+            num1:0,
+            num2:0,
+            result:0,
+            url:'www.itcast.com',
+            size:25,
+            chars:['+','-','*','/']
+        },
+        methods:{
+            count:function () {
+                this.result=Number.parseInt(this.num1)+parseInt(this.num2)
+            }
+        }
+    })
+
+</script>
+</html>

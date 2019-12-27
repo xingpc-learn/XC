@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue测试页面</title>
+    <!--script引入vue-->
+    <script src="vue.min.js"></script>
+</head>
+<body>
+<!--实现在body区域显示“传智播客”-->
+<!--编写视图view部分-->
+<div id="app">
+    <!--差值表达式，视图部分-->
+    {{name}}
+</div>
+</body>
+<script>
+<!--创建vm部分和modle部分-->
+    var VM=new Vue({
+        //el接管视图区域
+        el:'#app',
+        data:{
+            name:'传智播客'
+        }
+    })
+
+</script>
+</html>

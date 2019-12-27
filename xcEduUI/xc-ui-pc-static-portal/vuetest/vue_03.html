@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue测试页面,v-if,v-for</title>
+    <!--script引入vue-->
+    <script src="vue.min.js"></script>
+</head>
+<body>
+<!--实现在body区域显示“传智播客”-->
+<!--编写视图view部分-->
+<div id="app">
+    <!--差值表达式，视图部分-->
+    <li v-for="(item,index) in list" :key="index" v-if="item%2==0">{{item}}-{{index}}</li>
+    <br>
+    <div v-for="(value,key) in user" :key="key">{{key}}:{{value}}</div>
+    <br>
+    <li v-for="(item,index) in userList" :key="index">
+        <div v-if="item.user.age<25" style="color: red">
+            {{index}}-{{item.user.name}}-{{item.user.age}}
+        </div>
+        <div v-else>
+            {{index}}-{{item.user.name}}-{{item.user.age}}
+        </div>
+    </li>
+
+
+</div>
+</body>
+<script>
+<!--创建vm部分和modle部分-->
+    var VM=new Vue({
+        //el接管视图区域
+        el:'#app',
+        data:{
+            name:'传智播客',
+            list:[1,2,3,4,5,6],
+            user:{
+                name:'jack',
+                age:15
+            },
+            userList:[
+                {user:{name:'tom',age:20}},
+                {user:{name:'jerry',age:26}}
+            ]
+        }
+    })
+
+</script>
+</html>

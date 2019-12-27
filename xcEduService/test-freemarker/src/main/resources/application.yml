@@ -1,0 +1,13 @@
+server:
+  #服务端口
+  port: 8089
+spring:
+  application:
+    #指定服务名
+    name: test-freemarker
+  freemarker:
+    #关闭模板缓存，方便测试
+    cache: false
+    settings:
+      #检查模板更新延迟时间，0表示立即检查，如果设置大于0会有缓存，不方便测试
+      template_update_delay: 0
